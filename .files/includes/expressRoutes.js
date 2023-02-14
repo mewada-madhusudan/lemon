@@ -45,9 +45,9 @@ routes.get('/login', (req, res) => {
 routes.post('/login', (req, res) => {
     if ('username' in req.body) {
         if ('password' in req.body) {
-            let rUsername = db.maindb.get('admin.username').value();
-            let rPassword = db.maindb.get('admin.password').value();
-            let passwordMD5 = crypto.createHash('md5').update(req.body.password.toString()).digest("hex");
+            //let rUsername = db.maindb.get('admin.username').value();
+            //let rPassword = db.maindb.get('admin.password').value();
+            //let passwordMD5 = crypto.createHash('md5').update(req.body.password.toString()).digest("hex");
             if (req.body.username.toString() === "admin" && req.body.password.toString() === "admin") {
                 let loginToken = crypto.createHash('md5').update((Math.random()).toString() + (new Date()).toString()).digest("hex");
                 db.maindb.get('admin').assign({ loginToken }).write();
